@@ -29,9 +29,7 @@ void setup(){
   pinMode(12, INPUT_PULLUP);
   paintBlue();
 }
-
 void loop(){
-  
   char key = 0;
   switch(current_state){
     case standby:
@@ -39,7 +37,7 @@ void loop(){
       if(digitalRead(12) == LOW){
         passw = false;
         current_state = door_open;
-        Serial.println("DOOR OPENED");
+        Serial.println("DOOR OPPENED");
         start_open = millis();
       }
       key = kpd.getKey();
@@ -56,7 +54,7 @@ void loop(){
               wrong_passw = 0;
               current_state = door_open;
               passw = true;
-              Serial.println("DOOR OPENED");
+              Serial.println("DOOR OPPENED");
               start_open = millis();
             }else{
               time_block = 1;
@@ -112,14 +110,13 @@ void loop(){
           Serial.println("DOOR CLOSED");
         }
       }
-      if(digitalRead(12) == HIGH){
+      if(digitalRead(12) == LOW){
         current_state = standby;
         Serial.println("DOOR CLOSED");
       }
       break;
   }
 }
-
 void printCurrent_passw(){
   Serial.print("Current password:\t");
   Serial.print(current_passw[0]);
@@ -131,7 +128,6 @@ void printCurrent_passw(){
   Serial.print(current_passw[3]);
   Serial.print("\n");
 }
-
 void resetPassw(){
     passw_pos = 0;
     current_passw[0] = ' ';
@@ -139,7 +135,6 @@ void resetPassw(){
     current_passw[2] = ' ';
     current_passw[3] = ' ';
 }
-
 bool correctPassw(){
   bool flag = true;
   for(int i = 0; i < VALID_PASS; i++){
@@ -151,7 +146,6 @@ bool correctPassw(){
   }
   return false;
 }
-
 void paintRed(){
   digitalWrite(9,LOW);
   digitalWrite(10,HIGH);
@@ -167,4 +161,3 @@ void paintBlue(){
   digitalWrite(10,HIGH);
   digitalWrite(11,LOW);
 }
-
