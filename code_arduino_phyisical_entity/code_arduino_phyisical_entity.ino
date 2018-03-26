@@ -1,6 +1,14 @@
 #include <Keypad.h>
+#define SIZE_BUFFER_DATA       50
 const byte ROWS = 4;
 const byte COLS = 3;
+const double MIN_VOLTAGE = 1.2;
+const int BATTERY_LED = A2;
+const int BATTERY_PIN = A3;
+double batteryCharge;
+boolean     stringComplete = false;
+String      inputString = "";
+char        bufferData [SIZE_BUFFER_DATA];
 char keys[ROWS][COLS] = {
   {'1','2','3'},
   {'4','5','6'},
@@ -27,9 +35,14 @@ void setup(){
   pinMode(10, OUTPUT);
   pinMode(11, OUTPUT);
   pinMode(12, INPUT_PULLUP);
+  pinMode(BATTERY_LED,OUTPUT);
+  pinMode(BATTERY_PIN,INPUT);
   paintBlue();
 }
 void loop(){
+  battery();
+  receiveData();
+  //processData();
   char key = 0;
   switch(current_state){
     case standby:
@@ -123,17 +136,6 @@ void loop(){
       break;
   }
 }
-void printCurrent_passw(){
-  Serial.print("Current password:\t");
-  Serial.print(current_passw[0]);
-  Serial.print(" ");
-  Serial.print(current_passw[1]);
-  Serial.print(" ");
-  Serial.print(current_passw[2]);
-  Serial.print(" ");
-  Serial.print(current_passw[3]);
-  Serial.print("\n");
-}
 void resetPassw(){
     passw_pos = 0;
     current_passw[0] = ' ';
@@ -152,6 +154,16 @@ bool correctPassw(){
   }
   return false;
 }
+void battery(){
+  batteryCharge = (analogRead(BATTERY_PIN)*5.4)/1024;
+  if(batteryCharge <= MIN_VOLTAGE) {
+    digitalWrite(BATTERY_LED,HIGH);
+    Serial.println(4);
+  }
+  else {
+    digitalWrite(BATTERY_LED,LOW);
+  }
+}
 void paintRed(){
   digitalWrite(9,LOW);
   digitalWrite(10,HIGH);
@@ -166,4 +178,29 @@ void paintBlue(){
   digitalWrite(9,HIGH);
   digitalWrite(10,HIGH);
   digitalWrite(11,LOW);
+}
+void receiveData() {
+  while (Serial.available()) {
+    // get the new byte:
+    char inChar = (char)Serial.read();
+    // add it to the inputString:
+    inputString += inChar;
+    if (inChar == '\n') {
+      inputString.toCharArray(bufferData, SIZE_BUFFER_DATA);
+      stringComplete = true;
+    }
+  }
+}
+void processData() {
+  if (stringComplete) {
+    if(inputString == ""){
+      
+    }else if(inputString == ""){
+      
+    }else if(inputString == ""){
+      
+    }else if(inputString == ""){
+      
+    }
+  }
 }

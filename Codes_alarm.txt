@@ -1,0 +1,4 @@
+1:	Door Open
+2: 	Wrong Password x3
+3:	Door oppened for a long time
+4:	Low Battery

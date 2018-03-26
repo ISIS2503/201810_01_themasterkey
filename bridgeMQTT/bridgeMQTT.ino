@@ -1,9 +1,8 @@
 #include <PubSubClient.h>
 #include <ESP8266WiFi.h>
-
 //DEFINES
-#define TOPIC_SUBSCRIBE        "yale.uniandes.ml337.key"
-#define TOPIC_PUBLISH          "yale.uniandes.ml337.key"
+#define TOPIC_SUBSCRIBE        "protegemos/apt515/hub/cerradura1/key"
+#define TOPIC_PUBLISH          "protegemos/apt515/hub/cerradura1/alerta"
 #define SIZE_BUFFER_DATA       50
 
 //VARIABLES
