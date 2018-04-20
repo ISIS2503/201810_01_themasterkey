@@ -1,0 +1,657 @@
+{
+	"info": {
+		"_postman_id": "0aea98eb-d88e-48df-adc5-066730864a48",
+		"name": "Experimento",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/conjuntos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\",\n\t\"nombre\":\"conjunto1\",\n\t\"direccion\":\"direccion1\",\n\t\"alerta\":true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/conjuntos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"conjuntos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/conjuntos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"2\",\n\t\"nombre\":\"conjunto2\",\n\t\"direccion\":\"direccion2\",\n\t\"alerta\":true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/conjuntos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"conjuntos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/administradores",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\",\n\t\"name\":\"Rodolfo\",\n\t\"conjunto\":\"1\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/administradores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"administradores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/administradores",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"2\",\n\t\"name\":\"Urrego\",\n\t\"conjunto\":\"2\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/administradores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"administradores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/propietarios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\",\n\t\"nombre\":\"pepe\",\n\t\"edad\":25\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/propietarios",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"propietarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/propietarios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"2\",\n\t\"nombre\":\"pedro\",\n\t\"edad\":30\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/propietarios",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"propietarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/propietarios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"3\",\n\t\"nombre\":\"pablo\",\n\t\"edad\":35\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/propietarios",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"propietarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/propietarios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"4\",\n\t\"nombre\":\"marcos\",\n\t\"edad\":40\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/propietarios",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"propietarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/inmuebles",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\",\n\t\"idConjunto\":\"1\",\n\t\"idPropietario\":\"1\",\n\t\"alerta\":true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/inmuebles",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inmuebles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/inmuebles",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"2\",\n\t\"idConjunto\":\"1\",\n\t\"idPropietario\":\"2\",\n\t\"alerta\":true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/inmuebles",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inmuebles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/inmuebles",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"3\",\n\t\"idConjunto\":\"2\",\n\t\"idPropietario\":\"3\",\n\t\"alerta\":true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/inmuebles",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inmuebles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/inmuebles",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"4\",\n\t\"idConjunto\":\"2\",\n\t\"idPropietario\":\"4\",\n\t\"alerta\":true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/inmuebles",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inmuebles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/hubs",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\",\n\t\"numDisp\":1,\n\t\"alerta\":true,\n\t\"idInmueble\":\"1\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/hubs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hubs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/hubs",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"2\",\n\t\"numDisp\":1,\n\t\"alerta\":true,\n\t\"idInmueble\":\"2\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/hubs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hubs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/hubs",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"3\",\n\t\"numDisp\":1,\n\t\"alerta\":true,\n\t\"idInmueble\":\"3\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/hubs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hubs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/hubs",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"4\",\n\t\"numDisp\":1,\n\t\"alerta\":true,\n\t\"idInmueble\":\"4\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/hubs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hubs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/cerraduras",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\",\n\t\"idHub\":\"1\",\n\t\"alerta\":true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/cerraduras",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cerraduras"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/cerraduras",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"2\",\n\t\"idHub\":\"2\",\n\t\"alerta\":true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/cerraduras",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cerraduras"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/cerraduras",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"3\",\n\t\"idHub\":\"3\",\n\t\"alerta\":true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/cerraduras",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cerraduras"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/cerraduras",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"4\",\n\t\"idHub\":\"4\",\n\t\"alerta\":true\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/cerraduras",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cerraduras"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/alertas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\",\n\t\"tipo\":\"Apert sospechosa\",\n\t\"idCerradura\":\"1\",\n\t\"idHub\":\"1\",\n\t\"idInmueble\":\"1\",\n\t\"idConjunto\":\"1\",\n\t\"idPropietario\":\"1\",\n\t\"idAdministrador\":\"1\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/alertas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alertas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/alertas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"2\",\n\t\"tipo\":\"3 intentos fallidos\",\n\t\"idCerradura\":\"1\",\n\t\"idHub\":\"1\",\n\t\"idInmueble\":\"1\",\n\t\"idConjunto\":\"1\",\n\t\"idPropietario\":\"1\",\n\t\"idAdministrador\":\"1\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/alertas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alertas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/alertas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"3\",\n\t\"tipo\":\"3 intentos fallidos\",\n\t\"idCerradura\":\"3\",\n\t\"idHub\":\"3\",\n\t\"idInmueble\":\"3\",\n\t\"idConjunto\":\"2\",\n\t\"idPropietario\":\"3\",\n\t\"idAdministrador\":\"2\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/alertas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alertas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/alertas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"4\",\n\t\"tipo\":\"Mucho tempo abierta\",\n\t\"idCerradura\":\"4\",\n\t\"idHub\":\"4\",\n\t\"idInmueble\":\"4\",\n\t\"idConjunto\":\"2\",\n\t\"idPropietario\":\"4\",\n\t\"idAdministrador\":\"2\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/alertas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"alertas"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
