@@ -31,11 +31,29 @@ byte colPins[COLS] = { 8, 9, 10 };
 Keypad kpd = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 enum state {door_open, standby, door_block, oppened_for_long_time};
 state current_state = standby;
-const byte VALID_PASS = 2;
+const byte VALID_PASS = 20;
 char current_passw[4] = {' ', ' ', ' ', ' '};
 char correct_passw[VALID_PASS][4] = {
        {'1', '2', '3', '4'},
-       {'0', '0', '0', '0'}
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
+       {'0', '0', '0', '0'},
 };
 int passw_pos = 0, wrong_passw = 0, time_block = 0;
 long start_open = 0;
@@ -53,7 +71,7 @@ void setup(){
 void loop(){
   battery();
   receiveData();
-  //processData();
+  processData();
   char key = 0;
   switch(current_state){
     case standby:
@@ -167,9 +185,6 @@ bool correctPassw(){
 }
 void battery(){
   batteryCharge = (analogRead(BATTERY_PIN)*5.4)/1024;
-  Serial.print(batteryCharge);
-  Serial.print(" <= ");
-  Serial.println(MIN_VOLTAGE);
   if(batteryCharge <= MIN_VOLTAGE) {
     digitalWrite(BATTERY_LED,HIGH);
     Serial.println(4);
@@ -206,17 +221,35 @@ void receiveData() {
     }
   }
 }
+bool ch_wr = false;
+int possPass = 0;
 void processData() {
   if (stringComplete) {
-    if(inputString == ""){
-      
-    }else if(inputString == ""){
-      
-    }else if(inputString == ""){
-      
-    }else if(inputString == ""){
-      
+    stringComplete = false;
+    if(!ch_wr){
+      possPass = inputString.toInt();
+      ch_wr = true;
+      Serial.print("Posicion: ");
+      Serial.print(possPass);
+    }else{
+      char pas[4];
+      inputString.toCharArray(pas,4);
+      for (int i = 0; i < 4; i++)
+        correct_passw[possPass][i] = pas[i] - '0';
+      ch_wr = false;
+      Serial.print(correct_passw[possPass][0]);
+      Serial.print(" ");
+      Serial.print(correct_passw[possPass][1]);
+      Serial.print(" ");
+      Serial.print(correct_passw[possPass][2]);
+      Serial.print(" ");
+      Serial.print(correct_passw[possPass][3]);
+      Serial.print("\n");
     }
+    Serial.println(inputString);
+    //inputString = "";
   }
 }
+
+
 
