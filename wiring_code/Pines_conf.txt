@@ -1,0 +1,13 @@
+Pin 0:  Potenciometer (AnalogPin)
+Pin 4: 	KeyPad1
+Pin 5: 	KeyPad2
+Pin 6: 	KeyPad3
+Pin 7: 	KeyPad4
+Pin 8: 	KeyPad5
+Pin 9: 	KeyPad6
+Pin 10:	KeyPad7
+Pin 11:	LedRGB1 (Red)
+Pin 12: LedRGB2	(Green)
+Pin 13: LedRGB3	(Blue)
+Pin 14: Button
+Pin 15: Battery_Led
