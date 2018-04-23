@@ -23,6 +23,8 @@
  */
 package co.edu.uniandes.isis2503.nosqljpa.service;
 
+import co.edu.uniandes.isis2503.nosqljpa.auth.AuthorizationFilter.Role;
+import co.edu.uniandes.isis2503.nosqljpa.auth.Secured;
 import co.edu.uniandes.isis2503.nosqljpa.logic.AdministradorLogic;
 import co.edu.uniandes.isis2503.nosqljpa.logic.ConjuntoResidencialLogic;
 import co.edu.uniandes.isis2503.nosqljpa.model.dto.model.AdministradorDTO;
@@ -45,6 +47,7 @@ import javax.ws.rs.core.Response;
  * @author josedanielcardenasrincon
  */
 @Path("/administradores")
+@Secured
 @Produces(MediaType.APPLICATION_JSON)
 public class AdministradorService {
     
@@ -88,6 +91,7 @@ public class AdministradorService {
     }
 
     @DELETE
+    @Secured({Role.yale})
     @Path("/{id}")
     public Response delete(@PathParam("id") String id) {
         try {

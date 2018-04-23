@@ -24,8 +24,11 @@
 package co.edu.uniandes.isis2503.nosqljpa.model.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -40,14 +43,22 @@ public class CerraduraEntity implements Serializable {
     private String idHub;
     
     private boolean alerta;
+    
+    @Temporal(TemporalType.TIMESTAMP) 
+    private Date horarioInicio;
+    
+    @Temporal(TemporalType.TIMESTAMP) 
+    private Date horarioFinal;
 
     public CerraduraEntity() {
     }
 
-    public CerraduraEntity(String id, String idHub, boolean alerta) {
+    public CerraduraEntity(String id, String idHub, boolean alerta, Date horarioInicio, Date horarioFinal) {
         this.id = id;
         this.idHub=idHub;
         this.alerta=alerta;
+        this.horarioInicio=horarioInicio;
+        this.horarioFinal=horarioFinal;
     }
 
     public String getId() {
@@ -72,6 +83,22 @@ public class CerraduraEntity implements Serializable {
 
     public void setAlerta(boolean alerta) {
         this.alerta = alerta;
+    }
+
+    public Date getHorarioInicio() {
+        return horarioInicio;
+    }
+
+    public void setHorarioInicio(Date horarioInicio) {
+        this.horarioInicio = horarioInicio;
+    }
+
+    public Date getHorarioFinal() {
+        return horarioFinal;
+    }
+
+    public void setHorarioFinal(Date horarioFinal) {
+        this.horarioFinal = horarioFinal;
     }
     
     

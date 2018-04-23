@@ -23,6 +23,8 @@
  */
 package co.edu.uniandes.isis2503.nosqljpa.service;
 
+import co.edu.uniandes.isis2503.nosqljpa.auth.AuthorizationFilter.Role;
+import co.edu.uniandes.isis2503.nosqljpa.auth.Secured;
 import co.edu.uniandes.isis2503.nosqljpa.logic.AlertaLogic;
 import co.edu.uniandes.isis2503.nosqljpa.logic.CerraduraLogic;
 import co.edu.uniandes.isis2503.nosqljpa.logic.ConjuntoResidencialLogic;
@@ -47,6 +49,7 @@ import javax.ws.rs.core.Response;
  * @author josedanielcardenasrincon
  */
 @Path("/alertas")
+@Secured
 @Produces(MediaType.APPLICATION_JSON)
 public class AlertaService {
     private final AlertaLogic alertaLogic;
@@ -77,6 +80,7 @@ public class AlertaService {
     }
 
     @PUT
+    @Secured({Role.yale, Role.segutidadPrivada, Role.admin, Role.propietario})
     public AlertaDTO update(AlertaDTO dto) {
         return alertaLogic.update(dto);
     }
@@ -88,23 +92,27 @@ public class AlertaService {
     }
 
     @GET
+    @Secured({Role.yale})
     public List<AlertaDTO> all() {
         return alertaLogic.all();
     }
     
     @GET
+    @Secured({Role.admin})
     @Path("/{id}/admin")
     public List<AlertaDTO> findByAdministradorId(@PathParam("id") String id) {
         return alertaLogic.findByAdministradorId(id);
     }
     
     @GET
+    @Secured({Role.propietario})
     @Path("/{id}/propi")
     public List<AlertaDTO> findByPropietarioId(@PathParam("id") String id) {
         return alertaLogic.findByPropietarioId(id);
     }
 
     @DELETE
+    @Secured({Role.yale})
     @Path("/{id}")
     public Response delete(@PathParam("id") String id) {
         try {

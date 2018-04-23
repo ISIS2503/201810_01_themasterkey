@@ -23,6 +23,8 @@
  */
 package co.edu.uniandes.isis2503.nosqljpa.service;
 
+import co.edu.uniandes.isis2503.nosqljpa.auth.AuthorizationFilter.Role;
+import co.edu.uniandes.isis2503.nosqljpa.auth.Secured;
 import co.edu.uniandes.isis2503.nosqljpa.logic.InmuebleLogic;
 import co.edu.uniandes.isis2503.nosqljpa.model.dto.model.InmuebleDTO;
 import com.sun.istack.logging.Logger;
@@ -43,6 +45,7 @@ import javax.ws.rs.core.Response;
  * @author josedanielcardenasrincon
  */
 @Path("/inmuebles")
+@Secured
 @Produces(MediaType.APPLICATION_JSON)
 public class InmuebleService {
     
@@ -53,28 +56,33 @@ public class InmuebleService {
     }
 
     @POST
+    @Secured({Role.yale, Role.segutidadPrivada, Role.admin,Role.propietario})
     public InmuebleDTO add(InmuebleDTO dto) {
         return inmuebleLogic.add(dto);
     }
 
     @PUT
+    @Secured({Role.yale, Role.segutidadPrivada, Role.admin, Role.propietario})
     public InmuebleDTO update(InmuebleDTO dto) {
         return inmuebleLogic.update(dto);
     }
 
     @GET
+    @Secured({Role.yale, Role.segutidadPrivada, Role.admin, Role.propietario})
     @Path("/{id}")
     public InmuebleDTO find(@PathParam("id") String id) {
         return inmuebleLogic.find(id);
     }
 
     @GET
+    @Secured({Role.yale})
     public List<InmuebleDTO> all() {
         return inmuebleLogic.all();
     }
 
     @DELETE
     @Path("/{id}")
+    @Secured({Role.yale})
     public Response delete(@PathParam("id") String id) {
         try {
             inmuebleLogic.delete(id);

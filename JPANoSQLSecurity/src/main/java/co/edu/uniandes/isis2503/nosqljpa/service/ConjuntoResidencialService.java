@@ -23,6 +23,8 @@
  */
 package co.edu.uniandes.isis2503.nosqljpa.service;
 
+import co.edu.uniandes.isis2503.nosqljpa.auth.AuthorizationFilter.Role;
+import co.edu.uniandes.isis2503.nosqljpa.auth.Secured;
 import co.edu.uniandes.isis2503.nosqljpa.logic.ConjuntoResidencialLogic;
 import co.edu.uniandes.isis2503.nosqljpa.model.dto.model.ConjuntoResidencialDTO;
 import com.sun.istack.logging.Logger;
@@ -43,6 +45,7 @@ import javax.ws.rs.core.Response;
  * @author josedanielcardenasrincon
  */
 @Path("/conjuntos")
+@Secured
 @Produces(MediaType.APPLICATION_JSON)
 public class ConjuntoResidencialService {
     
@@ -53,28 +56,33 @@ public class ConjuntoResidencialService {
     }
 
     @POST
+    @Secured({Role.yale, Role.admin})
     public ConjuntoResidencialDTO add(ConjuntoResidencialDTO dto) {
         return conjuntoResidencialLogic.add(dto);
     }
 
     @PUT
+    @Secured({Role.yale, Role.admin})
     public ConjuntoResidencialDTO update(ConjuntoResidencialDTO dto) {
         return conjuntoResidencialLogic.update(dto);
     }
 
     @GET
+    @Secured({Role.yale, Role.segutidadPrivada, Role.admin, Role.propietario})
     @Path("/{id}")
     public ConjuntoResidencialDTO find(@PathParam("id") String id) {
         return conjuntoResidencialLogic.find(id);
     }
 
     @GET
+    @Secured({Role.yale})
     public List<ConjuntoResidencialDTO> all() {
         return conjuntoResidencialLogic.all();
     }
 
     @DELETE
     @Path("/{id}")
+    @Secured({Role.yale})
     public Response delete(@PathParam("id") String id) {
         try {
             conjuntoResidencialLogic.delete(id);

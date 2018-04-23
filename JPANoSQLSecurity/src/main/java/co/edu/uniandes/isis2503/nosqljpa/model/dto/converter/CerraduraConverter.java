@@ -45,6 +45,7 @@ public class CerraduraConverter {
         dto.setId(entity.getId());
         dto.setIdHub(entity.getIdHub());
         dto.setAlerta(entity.isAlerta());
+        dto.setHorarioInicio(entity.getHorarioInicio());
         return dto;
     }
     
@@ -53,6 +54,7 @@ public class CerraduraConverter {
         entity.setId(dto.getId());
         entity.setIdHub(dto.getIdHub());
         entity.setAlerta(dto.isAlerta());
+        entity.setHorarioFinal(dto.getHorarioFinal());
         return entity;
     }
     

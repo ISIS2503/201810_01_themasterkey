@@ -23,6 +23,7 @@
  */
 package co.edu.uniandes.isis2503.nosqljpa.model.dto.model;
 
+import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -37,14 +38,20 @@ public class CerraduraDTO{
     private String idHub;
     
     private boolean alerta;
+    
+    private Date horarioInicio;
+    
+    private Date horarioFinal;
 
     public CerraduraDTO() {
     }
 
-    public CerraduraDTO(String id, String idHub, boolean alerta) {
+    public CerraduraDTO(String id, String idHub, boolean alerta, Date horarioInicio, Date horarioFinal) {
         this.id = id;
         this.idHub = idHub;
         this.alerta=alerta;
+        this.horarioInicio=horarioInicio;
+        this.horarioFinal=horarioFinal;
     }
 
     public String getId() {
@@ -69,6 +76,22 @@ public class CerraduraDTO{
 
     public void setAlerta(boolean alerta) {
         this.alerta = alerta;
+    }
+    
+    public Date getHorarioInicio() {
+        return horarioInicio;
+    }
+
+    public void setHorarioInicio(Date horarioInicio) {
+        this.horarioInicio = horarioInicio;
+    }
+
+    public Date getHorarioFinal() {
+        return horarioFinal;
+    }
+
+    public void setHorarioFinal(Date horarioFinal) {
+        this.horarioFinal = horarioFinal;
     }
 
     

@@ -24,6 +24,8 @@
 package co.edu.uniandes.isis2503.nosqljpa.service;
 
 
+import co.edu.uniandes.isis2503.nosqljpa.auth.AuthorizationFilter.Role;
+import co.edu.uniandes.isis2503.nosqljpa.auth.Secured;
 import co.edu.uniandes.isis2503.nosqljpa.logic.PropietarioLogic;
 import co.edu.uniandes.isis2503.nosqljpa.model.dto.model.PropietarioDTO;
 import com.sun.istack.logging.Logger;
@@ -44,6 +46,7 @@ import javax.ws.rs.core.Response;
  * @author josedanielcardenasrincon
  */
 @Path("/propietarios")
+@Secured
 @Produces(MediaType.APPLICATION_JSON)
 public class PropietarioService {
     
@@ -54,27 +57,32 @@ public class PropietarioService {
     }
 
     @POST
+    @Secured({Role.yale})
     public PropietarioDTO add(PropietarioDTO dto) {
         return propietarioLogic.add(dto);
     }
 
     @PUT
+    @Secured({Role.yale, Role.admin,Role.segutidadPrivada,Role.propietario})
     public PropietarioDTO update(PropietarioDTO dto) {
         return propietarioLogic.update(dto);
     }
 
     @GET
     @Path("/{id}")
+    @Secured({Role.yale, Role.admin,Role.segutidadPrivada,Role.propietario})
     public PropietarioDTO find(@PathParam("id") String id) {
         return propietarioLogic.find(id);
     }
 
     @GET
+    @Secured({Role.yale})
     public List<PropietarioDTO> all() {
         return propietarioLogic.all();
     }
 
     @DELETE
+    @Secured({Role.yale})
     @Path("/{id}")
     public Response delete(@PathParam("id") String id) {
         try {
