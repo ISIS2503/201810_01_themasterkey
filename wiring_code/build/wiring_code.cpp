@@ -17,6 +17,17 @@
 #define BLUE 13
 #define BUTTON 14
 #define BATTERY_LED 15
+#include "WProgram.h"
+void setup();
+void loop();
+void resetPassw();
+bool correctPassw();
+void battery();
+void paintRed();
+void paintGreen();
+void paintBlue();
+void receiveData();
+void processData();
 const char keys[ROWS][COLS] = {{'1','2','3'},{'4','5','6'},{'7','8','9'},{'*','0','#'}};
 byte rowPins[ROWS] = { KEYPAD1, KEYPAD2, KEYPAD3, KEYPAD4 };
 byte colPins[COLS] = { KEYPAD5, KEYPAD6, KEYPAD7 };
@@ -184,6 +195,7 @@ void processData() {
     inputString = "";
   }
 }
+
 
 
 
