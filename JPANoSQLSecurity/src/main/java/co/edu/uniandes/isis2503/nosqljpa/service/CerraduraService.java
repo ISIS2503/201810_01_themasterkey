@@ -23,6 +23,8 @@
  */
 package co.edu.uniandes.isis2503.nosqljpa.service;
 
+import co.edu.uniandes.isis2503.nosqljpa.auth.AuthorizationFilter.Role;
+import co.edu.uniandes.isis2503.nosqljpa.auth.Secured;
 import co.edu.uniandes.isis2503.nosqljpa.logic.CerraduraLogic;
 import co.edu.uniandes.isis2503.nosqljpa.model.dto.model.CerraduraDTO;
 import com.sun.istack.logging.Logger;
@@ -43,6 +45,7 @@ import javax.ws.rs.core.Response;
  * @author josedanielcardenasrincon
  */
 @Path("/cerraduras")
+@Secured
 @Produces(MediaType.APPLICATION_JSON)
 public class CerraduraService {
     private final CerraduraLogic cerraduraLogic;
@@ -52,27 +55,33 @@ public class CerraduraService {
     }
 
     @POST
+    @Secured({Role.propietario})
     public CerraduraDTO add(CerraduraDTO dto) {
         return cerraduraLogic.add(dto);
     }
 
+    //Servicio para modificar los horarios de apertura de la puerta.
     @PUT
+    @Secured({Role.propietario})
     public CerraduraDTO update(CerraduraDTO dto) {
         return cerraduraLogic.update(dto);
     }
 
     @GET
+    @Secured({Role.propietario})
     @Path("/{id}")
     public CerraduraDTO find(@PathParam("id") String id) {
         return cerraduraLogic.find(id);
     }
 
     @GET
+    @Secured({Role.yale})
     public List<CerraduraDTO> all() {
         return cerraduraLogic.all();
     }
 
     @DELETE
+    @Secured({Role.yale})
     @Path("/{id}")
     public Response delete(@PathParam("id") String id) {
         try {

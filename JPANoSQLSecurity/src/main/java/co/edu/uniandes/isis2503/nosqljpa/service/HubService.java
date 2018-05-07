@@ -23,6 +23,8 @@
  */
 package co.edu.uniandes.isis2503.nosqljpa.service;
 
+import co.edu.uniandes.isis2503.nosqljpa.auth.AuthorizationFilter.Role;
+import co.edu.uniandes.isis2503.nosqljpa.auth.Secured;
 import co.edu.uniandes.isis2503.nosqljpa.logic.HubLogic;
 import co.edu.uniandes.isis2503.nosqljpa.model.dto.model.HubDTO;
 import com.sun.istack.logging.Logger;
@@ -43,6 +45,7 @@ import javax.ws.rs.core.Response;
  * @author josedanielcardenasrincon
  */
 @Path("/hubs")
+@Secured
 @Produces(MediaType.APPLICATION_JSON)
 public class HubService {
     
@@ -53,27 +56,32 @@ public class HubService {
     }
 
     @POST
+    @Secured({Role.yale, Role.admin})
     public HubDTO add(HubDTO dto) {
         return hubLogic.add(dto);
     }
 
     @PUT
+    @Secured({Role.propietario})
     public HubDTO update(HubDTO dto) {
         return hubLogic.update(dto);
     }
 
     @GET
     @Path("/{id}")
+    @Secured({Role.yale, Role.segutidadPrivada, Role.admin, Role.propietario})
     public HubDTO find(@PathParam("id") String id) {
         return hubLogic.find(id);
     }
 
     @GET
+    @Secured({Role.yale})
     public List<HubDTO> all() {
         return hubLogic.all();
     }
 
     @DELETE
+    @Secured({Role.yale})
     @Path("/{id}")
     public Response delete(@PathParam("id") String id) {
         try {
