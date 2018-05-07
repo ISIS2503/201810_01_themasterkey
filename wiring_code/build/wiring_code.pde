@@ -130,8 +130,8 @@ void resetPassw(){
 bool correctPassw(){
   bool ok = true;
   for (int i = 0; i < 4*VALID_PASS; i++) {
-    ok = (current_passw[(i%4)] == EEPROM.read(i));
-    if (i % 4 == 0)
+    ok = ok && (current_passw[(i%4)] == EEPROM.read(i));
+    if (i % 4 == 0 && i != 0)
       if (ok) return ok;
       else ok = true;
   }
@@ -171,8 +171,34 @@ void receiveData() {
     }
   }
 }
+int pass[4];
+int j = 0;
+int pos = 0;
 void processData() {
   if (stringComplete) {
+    if(j == 0){
+      pos = inputString.toInt();
+      j++;
+    }else if (j == 1){
+      
+      pass[0] = inputString.toInt();
+      j++;
+    }else if (j == 2){
+      pass[1] = inputString.toInt();
+      j++;
+    }else if (j == 3){
+      pass[2] = inputString.toInt();
+      j++;
+    }else if (j == 4){
+      pass[3] = inputString.toInt();
+      j++;
+    }
+    if(j == 5){
+      j = 0;
+      for (int i = 0; i < 4; i++)
+         EEPROM.write(pos*4 + i, pass[i]);
+    }
+    /*
     Serial.println(inputString);
     stringComplete = false;
     if(!ch_wr){
@@ -180,7 +206,7 @@ void processData() {
       ch_wr = true;
     }else
        for (int i = 0; i < 4; i++)
-         EEPROM.write(possPass + i, ((int)(inputString.charAt(i) - '0')));
+         EEPROM.write(possPass + i, ((int)(inputString.charAt(i) - '0')));*/
     inputString = "";
   }
 }
