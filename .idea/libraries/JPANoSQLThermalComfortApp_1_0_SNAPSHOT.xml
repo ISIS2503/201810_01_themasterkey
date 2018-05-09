@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JPANoSQLThermalComfortApp-1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/JPANoSQLSecurity_Presistencia/JPANoSQLSecurity/target/JPANoSQLThermalComfortApp-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
