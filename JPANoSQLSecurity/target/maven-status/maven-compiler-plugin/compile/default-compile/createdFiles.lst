@@ -36,7 +36,6 @@ co/edu/uniandes/isis2503/nosqljpa/model/dto/model/InmuebleDTO.class
 co/edu/uniandes/isis2503/nosqljpa/logic/CerraduraLogic.class
 co/edu/uniandes/isis2503/nosqljpa/auth/Secured.class
 co/edu/uniandes/isis2503/nosqljpa/persistence/HubPersistence.class
-.netbeans_automatic_build
 co/edu/uniandes/isis2503/nosqljpa/auth/AuthorizationFilter.class
 co/edu/uniandes/isis2503/nosqljpa/model/dto/model/AdministradorDTO.class
 co/edu/uniandes/isis2503/nosqljpa/model/dto/model/HubDTO.class
