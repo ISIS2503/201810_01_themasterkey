@@ -92,6 +92,7 @@ void loop(){
         if(key == '*' && passw)
           current_state = standby;
       if(digitalRead(BUTTON) == HIGH && !passw)
+      
         current_state = standby;
       if((millis() - start_open) >= 30000){
           current_state = oppened_for_long_time;
@@ -144,6 +145,8 @@ void battery(){
     Serial.println(4);
   }
   else 
+  
+  
     digitalWrite(BATTERY_LED,LOW);
 }
 void paintRed(){

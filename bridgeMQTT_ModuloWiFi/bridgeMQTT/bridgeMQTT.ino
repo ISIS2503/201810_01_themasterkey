@@ -18,13 +18,13 @@ PubSubClient  clientMQTT(clientWIFI);
 
 // CONFIG WIFI
 const char* ssid = "Daniel_PC";
-const char* password = "74o0W4&2";
+const char* password = "12345678";
 
 // CONFIG MQTT
-IPAddress serverMQTT (172,24,42,86);
-const uint16_t portMQTT = 8083;
-// const char* usernameMQTT = "admin";
-// const char* passwordMQTT = "admin";
+IPAddress serverMQTT (52,3,184,147);
+const uint16_t portMQTT = 17063;
+const char* usernameMQTT = "uevrgtww";
+const char* passwordMQTT = "mkBG1wNBzgQP";
 
 void connectWIFI() {
   // Conectar a la red WiFi
@@ -78,8 +78,8 @@ void processData() {
 
       boolean conectMQTT = false;
       if (!clientMQTT.connected()) {
-        // if (!clientMQTT.connect(idDevice, usernameMQTT, passwordMQTT)) {
-        if (!clientMQTT.connect(idDevice)) {
+        if (!clientMQTT.connect(idDevice, usernameMQTT, passwordMQTT)) {
+        //if (!clientMQTT.connect(idDevice)) {
           conectMQTT = false;
         }
         conectMQTT = true;
@@ -90,7 +90,7 @@ void processData() {
 
       if(conectMQTT) {
         if(clientMQTT.subscribe(TOPIC_SUBSCRIBE)) {
-          // Serial.println("Subscribe OK");
+          Serial.println("Subscribe OK");
         }
       }
     }
